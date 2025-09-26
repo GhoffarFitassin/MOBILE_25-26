@@ -5,12 +5,12 @@
 
 A new flutter project .
 
-![gambar](/images/01.png)
+![gambar](../hello_world/images/01.png)
 
 ## Praktikum 2: Menghubungkan Perangkat Android atau Emulator
 - **Tersambung**
-![gambar](/images/praktikum2.png)
-![gambar](/images/praktikum2.jpeg)
+![gambar](../hello_world/images/praktikum2.png)
+![gambar](../hello_world/images/praktikum2.jpeg)
 ## Praktikum 4: Menerapkan Widget Dasar
 ### Langkah 1: Text Widget
 - **Code**
@@ -29,7 +29,7 @@ class MyTextWidget extends StatelessWidget {
   }
 }
 ```
-![gambar](/images/praktikum4a.png)
+![gambar](../hello_world/images/praktikum4a.png)
 ### Langkah 2: Image Widget
 - **Code Dart**
 ```
@@ -52,7 +52,7 @@ flutter:
   assets:
     - assets/POLINEMA_LOGO.png
 ```
-![gambar](/images/praktikum4b.png)
+![gambar](../hello_world/images/praktikum4b.png)
 ## Praktikum 5: Menerapkan Widget Material Design dan iOS Cupertino
 ### Langkah 1: Cupertino Button dan Loading Bar
 **Code**
@@ -84,7 +84,7 @@ return MaterialApp(
   }
 }
 ```
-![gambar](/images/praktikum4b.png)
+![gambar](../hello_world/images/praktikum4b.png)
 ### Langkah 2: Floating Action Button (FAB)
 **Code**
 ```
@@ -108,7 +108,7 @@ class MyFabWidget extends StatelessWidget {
   }
 }
 ```
-![gambar](/images/praktikum4b.png)
+![gambar](../hello_world/images/praktikum4b.png)
 ### Langkah 3: Scaffold Widget
 **Code**
 ```
@@ -187,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
-![gambar](/images/praktikum5c.png)
+![gambar](../hello_world/images/praktikum5c.png)
 ### Langkah 4: Dialog Widget
 **Code**
 ```
@@ -253,7 +253,7 @@ showAlertDialog(BuildContext context) {
   );
 }
 ```
-![gambar](/images/praktikum5d.png)
+![gambar](../hello_world/images/praktikum5d.png)
 ### Langkah 5: Input dan Selection Widget
 **Code**
 ```
@@ -280,7 +280,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-![gambar](/images/praktikum5e.png)
+![gambar](../hello_world/images/praktikum5e.png)
 ### Langkah 6: Date and Time Pickers
 **Code**
 ```
@@ -358,4 +358,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
-![gambar](/images/praktikum5f.png)
+![gambar](../hello_world/images/praktikum5f.png)
