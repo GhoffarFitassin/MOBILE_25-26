@@ -3,7 +3,7 @@
 <br><br>
 
 <p align="center">
-    <img src="../layout_flutter/codelab06/images/POLINEMA-LOGO.png" alt="POLINEMA Logo" width="200">
+    <img src="../codelab06/images/POLINEMA-LOGO.png" alt="POLINEMA Logo" width="200">
 </p>
 
 <div align="center">
