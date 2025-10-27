@@ -498,6 +498,7 @@ class FilterItem extends StatelessWidget {
 # Tugas Praktikum
 1. Gabungkan hasil praktikum 1 dengan hasil praktikum 2 sehingga setelah melakukan pengambilan foto, dapat dibuat filter carouselnya!
 - **Screenshot Hasil** 
+![](./assets/tugas.gif)
 
 2. Jelaskan maksud void async pada praktikum 1?
 - **Jawaban:** void async digunakan untuk mendeklarasikan fungsi asinkron yang tidak mengembalikan nilai, sehingga dapat menjalankan proses secara bersamaan tanpa menunggu selesai.
