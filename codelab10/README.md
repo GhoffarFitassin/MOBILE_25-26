@@ -42,7 +42,7 @@
 
 ## Praktikum 3
 **Hasil**
-![](../codelab10/assets/praktikum3.png)
+![](../codelab10/assets/praktikum3.gif)
 
 # Tugas
 ## Tugas 1
