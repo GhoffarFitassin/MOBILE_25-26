@@ -122,6 +122,12 @@ Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat se
 **Jawaban:** Error “Bad state: Stream has already been listened to.” muncul karena Stream yang bersifat single-subscription hanya boleh di-listen sekali. Jika mencoba memanggil .listen() lagi pada stream yang sama, Flutter langsung melempar error tersebut.
 
 ## Soal 11
+**Jelaskan mengapa hal itu bisa terjadi ?**
+
+**Jawaban:** Itu terjadi karena stream-nya diubah menjadi broadcast stream, lalu dipasang dua listener (subscription dan subscription2) yang keduanya menerima data yang sama. Pada single-subscription stream, hanya satu listener yang boleh mendengarkan, tetapi ketika di-broadcast, setiap listener baru akan menerima semua event yang masuk. Jadi, setiap kali addRandomNumber() mengirim satu angka, stream broadcast akan menyalurkannya ke dua listener, sehingga callback dijalankan dua kali, dan nilai values bertambah dua kali untuk setiap event yang sama.
+
+**Hasil**
+![](./assets/soal11.gif)
 
 ## Soal 12
 
