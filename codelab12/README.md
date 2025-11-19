@@ -35,38 +35,12 @@
 ## Soal 1
 **Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda. Gantilah warna tema aplikasi sesuai kesukaan Anda.**
 ```
-class _FuturePageState extends State<FuturePage> {
-  String result = '';
-
-  @override
+@override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Back from the future - Ghoffar')),
-      body: Center(
-        child: Column(
-          children: [
-            const Spacer(),
-            ElevatedButton(
-              child: const Text('GO!'),
-              onPressed: () {
-                setState(() {});
-                getData().then((value) {
-                  result = value.body.toString().substring(0, 450);
-                  setState(() {});
-                }).catchError((_) {
-                  result = 'An error occurred';
-                  setState(() {});
-                });
-              },
-            ),
-            const Spacer(),
-            Text(result),
-            const Spacer(),
-            const CircularProgressIndicator(),
-            const Spacer(),
-          ],
-        ),
-      ),
+    return MaterialApp(
+      title: 'Stream - Ghoffar',
+      theme: ThemeData(primarySwatch: Colors.purple),
+      home: const StreamHomePage(),
     );
   }
 ```
@@ -114,7 +88,12 @@ Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut ke
 ![](./assets/soal5.gif)
 
 ## Soal 7
+**Jelaskan maksud kode langkah 13 sampai 15 tersebut!**
+**Jawaban:** Pemanggilan addError() mengirimkan sebuah error event ke dalam stream menggunakan controller.sink.addError("error"). Artinya, aliran data tidak mengirim angka seperti biasa, tetapi mengirim sinyal bahwa terjadi kesalahan.
 
+Bagian .onError((error) { ... }) adalah error handler pada sisi penerima stream. Ketika stream menerima error tadi, blok ini langsung dijalankan sebagai respon terhadap event error tersebut.
+
+Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat setState(), sehingga UI bisa menampilkan keadaan bahwa terjadi kesalahan.
 
 ## Soal 8
 
