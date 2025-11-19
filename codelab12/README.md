@@ -89,7 +89,7 @@ class _FuturePageState extends State<FuturePage> {
 
 ## Soal 5
 **Jelaskan perbedaan menggunakan listen dan await for (langkah 9) !**
-**Jawaban:** Metode listen diimplementasikan untuk memantau Stream secara kontinu tanpa menginterupsi eksekusi program utama. Mekanisme ini segera memicu callback saat data tersedia, memfasilitasi proses di background sembari mempertahankan responsivitas UI. Sebaliknya, sintaks await for diterapkan untuk memproses data Stream secara sekuensial dalam lingkup async. Eksekusi kode selanjutnya akan tertunda hingga iterasi Stream rampung sepenuhnya. Secara fundamental, await for bersifat memblokir fungsi async hingga penyelesaian Stream, sedangkan listen beroperasi secara non-blokir, memungkinkan penerimaan event beriringan dengan jalannya program.
+**Jawaban:** Metode listen diimplementasikan untuk memantau Stream secara kontinu tanpa menginterupsi eksekusi program utama (non-blocking). Mekanisme ini memicu callback seketika saat data tersedia, sehingga ideal untuk proses di background guna menjaga responsivitas UI. Sebaliknya, sintaks await for digunakan untuk mengiterasi data Stream secara sekuensial di dalam fungsi async. Eksekusi kode selanjutnya akan tertunda hingga seluruh siklus Stream rampung. Secara fundamental, await for bersifat memblokir alur fungsi hingga penyelesaian Stream, sedangkan listen memungkinkan program tetap beroperasi secara paralel sembari menerima event.
 
 ## Soal 6
 
