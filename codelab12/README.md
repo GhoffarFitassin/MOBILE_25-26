@@ -81,8 +81,8 @@ class _FuturePageState extends State<FuturePage> {
 ```
 
 ## Soal 3
-
-
+**Jelaskan fungsi keyword yield* pada kode tersebut! Apa maksud isi perintah kode tersebut?**
+**Jawaban:** yield* digunakan untuk meneruskan semua data yang dihasilkan oleh Stream.periodic ke dalam stream getColors(). Fungsi ini mengirim satu warna setiap 1 detik. yield* hanya meneruskan warna-warna yang dibuat oleh Stream.periodic. Index warna dibuat berulang (loop) dengan memakai operasi modulo.
 ## Soal 4
 
 
