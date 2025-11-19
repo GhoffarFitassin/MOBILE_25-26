@@ -87,6 +87,7 @@ Angka yang diterima (event) disimpan ke variabel lastNumber, lalu UI diperbarui.
 
 Langkah 10:
 Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut kemudian dikirim ke stream melalui addNumberToSink(). Artinya, setiap kali fungsi ini dipanggil (misalnya saat menekan tombol), akan ada angka baru yang masuk ke stream.
+
 **Hasil**
 ![](./assets/soal6.gif)
 
@@ -103,11 +104,17 @@ Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat se
 **Jelaskan maksud kode langkah 8 dan 10 tersebut!**
 
 **Jawaban:** StreamTransformer diimplementasikan untuk memanipulasi aliran data sebelum dieksekusi oleh metode listen(). Dalam kasus ini, fungsi handleData mengintervensi setiap angka yang masuk, mengalikan value tersebut dengan 10, lalu meneruskannya ke sink. Mekanisme ini memastikan listener menerima data yang telah terkalibrasi. Apabila terjadi gangguan pada stream, handleError akan menyubstitusi error tersebut menjadi nilai -1 guna menjaga kontinuitas proses dan mencegah kegagalan sistem (crash). Setelah siklus stream berakhir, handleDone bertugas menutup sink. Pada tahap akhir, stream yang telah tertransformasi tersebut dipantau oleh listen, memungkinkan widget memperbarui variabel lastNumber berdasarkan hasil kalkulasi atau nilai fallback -1.
+
 **Hasil**
 ![](./assets/soal8.gif)
 
 ## Soal 9
+**Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!**
 
+**Jawaban:** Dalam implementasi ini, inisialisasi listener dilakukan pada metode initState() untuk mengobservasi data yang masuk ke stream. Pembaruan variabel lastNumber dieksekusi melalui setState() setiap kali terjadi event, dengan mekanisme penanganan error yang menetapkan nilai menjadi -1, serta penanganan terminasi via onDone. Sementara itu, fungsi addRandomNumber() menghasilkan integer acak (0–9) yang hanya didistribusikan jika controller masih aktif. Apabila stream telah ditutup, lastNumber secara eksplisit diubah menjadi -1 sebagai indikator inaktivitas. Pendekatan ini menjamin pembaruan widget yang reaktif sekaligus memitigasi potensi eksepsi (crash) akibat interaksi pada stream yang sudah tidak aktif.
+
+**Hasil**
+![](./assets/soal9.gif)
 
 ## Soal 10
 
