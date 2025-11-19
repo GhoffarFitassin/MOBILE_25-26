@@ -33,7 +33,7 @@
 
 # Tugas
 ## Soal 1
-- **Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda. Gantilah warna tema aplikasi sesuai kesukaan Anda.**
+**Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda. Gantilah warna tema aplikasi sesuai kesukaan Anda.**
 ```
 class _FuturePageState extends State<FuturePage> {
   String result = '';
@@ -71,7 +71,14 @@ class _FuturePageState extends State<FuturePage> {
   }
 ```
 ## Soal 2
-
+**Tambahkan 5 warna lainnya sesuai keinginan Anda pada variabel colors tersebut.**
+```
+  Colors.indigo,
+  Colors.pink,
+  Colors.orange,
+  Colors.green,
+  Colors.red
+```
 
 ## Soal 3
 
