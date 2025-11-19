@@ -130,6 +130,14 @@ Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat se
 ![](./assets/soal11.gif)
 
 ## Soal 12
+**Jelaskan maksud kode pada langkah 3 dan 7 !**
 
+**Jawaban:**
+Langkah 3: Kode tersebut membuat sebuah stream yang memancarkan (meng-emit ) angka acak setiap 1 detik. Fungsi getNumbers() adalah async generator yang mengembalikan Stream. Di dalamnya, digunakan yield* untuk “meneruskan” aliran data dari Stream.periodic(), yaitu stream yang secara otomatis berjalan setiap durasi tertentu. Pada setiap detik (Duration(seconds: 1)), callback Stream.periodic dijalankan, membuat angka acak baru dengan Random().nextInt(10) lalu mengembalikannya. Hasilnya, siapa pun yang melakukan listen pada stream ini akan menerima angka acak baru setiap 1 detik secara terus-menerus.
+
+Langkah 7: Kode StreamBuilder tersebut berfungsi untuk membangun tampilan UI berdasarkan data terbaru yang dikirim oleh sebuah Stream. StreamBuilder akan memantau numberStream, dan setiap kali stream mengirim nilai baru, builder akan dipanggil ulang untuk memperbarui tampilan. initialData: 0 berarti sebelum stream mengirim data pertama, nilai awal yang ditampilkan adalah 0. Di dalam builder, snapshot berisi data terbaru dari stream: jika terjadi error, bagian snapshot.hasError dijalankan; jika ada data (snapshot.hasData), widget menampilkan angka tersebut dalam teks besar; dan jika belum ada data sama sekali, akan mengembalikan widget kecil SizedBox.shrink() sebagai placeholder. Dengan kata lain, StreamBuilder membuat UI selalu sinkron dengan data stream secara otomatis dan real-time.
+
+**Hasil**
+![](./assets/soal12.gif)
 
 ## Soal 13
