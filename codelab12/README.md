@@ -117,10 +117,11 @@ Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat se
 ![](./assets/soal9.gif)
 
 ## Soal 10
+**Jelaskan mengapa error itu bisa terjadi ?**
 
+**Jawaban:** Error “Bad state: Stream has already been listened to.” muncul karena Stream yang bersifat single-subscription hanya boleh di-listen sekali. Jika mencoba memanggil .listen() lagi pada stream yang sama, Flutter langsung melempar error tersebut.
 
 ## Soal 11
-
 
 ## Soal 12
 
