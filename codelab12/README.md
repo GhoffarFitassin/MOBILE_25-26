@@ -141,3 +141,24 @@ Langkah 7: Kode StreamBuilder tersebut berfungsi untuk membangun tampilan UI ber
 ![](./assets/soal12.gif)
 
 ## Soal 13
+**Jelaskan maksud praktikum ini ! Dimanakah letak konsep pola BLoC-nya**
+
+**Jawaban:**
+Tujuan dari praktikum ini adalah membuat aplikasi Flutter sederhana yang menghasilkan angka acak dan menampilkannya di UI.
+
+Letak pola BLoC-nya:
+1. File BLoC: random_bloc.dart
+    - Inti BLoC: kelas RandomNumberBloc.
+    - Input (Event/Sink): _generateRandomController — expose sebagai Sink<void> get generateRandom. UI mengirim event (di sini null) ke sink ini untuk meminta angka baru.
+    - Output (State/Stream): _randomNumberController — expose sebagai Stream<int> get randomNumber. Bloc menambahkan nilai random ke sini sehingga UI dapat berlangganan.
+    - Logika bisnis: di konstruktor RandomNumberBloc() ada listener pada _generateRandomController.stream yang ketika menerima event membuat angka acak Random().nextInt(100) dan add ke _randomNumberController.
+    - Lifecycle: method dispose() menutup controller untuk mencegah memory leak.
+
+2. File UI: random_screen.dart
+    - final _bloc = RandomNumberBloc(); — state membuat instance bloc.
+    - StreamBuilder<int>( stream: _bloc.randomNumber, ...) — UI mendengarkan randomNumber stream dan rebuild saat ada nilai baru.
+    - FloatingActionButton memanggil _bloc.generateRandom.add(null); untuk memicu pembuatan angka baru.
+    - dispose() pada State memanggil _bloc.dispose() untuk menutup resources.
+
+**Hasil**
+![](./assets/soal13.gif)
