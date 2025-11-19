@@ -56,6 +56,7 @@
 
 ## Soal 3
 **Jelaskan fungsi keyword yield* pada kode tersebut! Apa maksud isi perintah kode tersebut?**
+
 **Jawaban:** yield* digunakan untuk meneruskan semua data yang dihasilkan oleh Stream.periodic ke dalam stream getColors(). Fungsi ini mengirim satu warna setiap 1 detik. yield* hanya meneruskan warna-warna yang dibuat oleh Stream.periodic. Index warna dibuat berulang (loop) dengan memakai operasi modulo.
 ## Soal 4
 **Hasil**
@@ -63,10 +64,12 @@
 
 ## Soal 5
 **Jelaskan perbedaan menggunakan listen dan await for (langkah 9) !**
+
 **Jawaban:** Metode listen diimplementasikan untuk memantau Stream secara kontinu tanpa menginterupsi eksekusi program utama (non-blocking). Mekanisme ini memicu callback seketika saat data tersedia, sehingga ideal untuk proses di background guna menjaga responsivitas UI. Sebaliknya, sintaks await for digunakan untuk mengiterasi data Stream secara sekuensial di dalam fungsi async. Eksekusi kode selanjutnya akan tertunda hingga seluruh siklus Stream rampung. Secara fundamental, await for bersifat memblokir alur fungsi hingga penyelesaian Stream, sedangkan listen memungkinkan program tetap beroperasi secara paralel sembari menerima event.
 
 ## Soal 6
 **Jelaskan maksud kode langkah 8 dan 10 tersebut!**
+
 **Jawaban:** 
 Langkah 8:
 Pada langkah ini, widget sedang menyiapkan stream yang akan didengarkan.
@@ -89,6 +92,7 @@ Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut ke
 
 ## Soal 7
 **Jelaskan maksud kode langkah 13 sampai 15 tersebut!**
+
 **Jawaban:** Pemanggilan addError() mengirimkan sebuah error event ke dalam stream menggunakan controller.sink.addError("error"). Artinya, aliran data tidak mengirim angka seperti biasa, tetapi mengirim sinyal bahwa terjadi kesalahan.
 
 Bagian .onError((error) { ... }) adalah error handler pada sisi penerima stream. Ketika stream menerima error tadi, blok ini langsung dijalankan sebagai respon terhadap event error tersebut.
@@ -96,7 +100,11 @@ Bagian .onError((error) { ... }) adalah error handler pada sisi penerima stream.
 Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat setState(), sehingga UI bisa menampilkan keadaan bahwa terjadi kesalahan.
 
 ## Soal 8
+**Jelaskan maksud kode langkah 8 dan 10 tersebut!**
 
+**Jawaban:** StreamTransformer diimplementasikan untuk memanipulasi aliran data sebelum dieksekusi oleh metode listen(). Dalam kasus ini, fungsi handleData mengintervensi setiap angka yang masuk, mengalikan value tersebut dengan 10, lalu meneruskannya ke sink. Mekanisme ini memastikan listener menerima data yang telah terkalibrasi. Apabila terjadi gangguan pada stream, handleError akan menyubstitusi error tersebut menjadi nilai -1 guna menjaga kontinuitas proses dan mencegah kegagalan sistem (crash). Setelah siklus stream berakhir, handleDone bertugas menutup sink. Pada tahap akhir, stream yang telah tertransformasi tersebut dipantau oleh listen, memungkinkan widget memperbarui variabel lastNumber berdasarkan hasil kalkulasi atau nilai fallback -1.
+**Hasil**
+![](./assets/soal6.gif)
 
 ## Soal 9
 
