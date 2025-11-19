@@ -92,7 +92,26 @@ class _FuturePageState extends State<FuturePage> {
 **Jawaban:** Metode listen diimplementasikan untuk memantau Stream secara kontinu tanpa menginterupsi eksekusi program utama (non-blocking). Mekanisme ini memicu callback seketika saat data tersedia, sehingga ideal untuk proses di background guna menjaga responsivitas UI. Sebaliknya, sintaks await for digunakan untuk mengiterasi data Stream secara sekuensial di dalam fungsi async. Eksekusi kode selanjutnya akan tertunda hingga seluruh siklus Stream rampung. Secara fundamental, await for bersifat memblokir alur fungsi hingga penyelesaian Stream, sedangkan listen memungkinkan program tetap beroperasi secara paralel sembari menerima event.
 
 ## Soal 6
+**Jelaskan maksud kode langkah 8 dan 10 tersebut!**
+**Jawaban:** 
+Langkah 8:
+Pada langkah ini, widget sedang menyiapkan stream yang akan didengarkan.
+1. numberStream = NumberStream();
+Membuat objek stream khusus yang kamu rancang untuk mengirim angka.
+2. numberStreamController = numberStream.controller;
+Mengambil controller, yaitu alat untuk mengatur kapan data baru dikirim ke stream.
+3. Stream stream = numberStreamController.stream;
+Mengambil aliran datanya (stream-nya).
+4. stream.listen((event) { ... })
+Mulai mendengarkan stream.
+Setiap ada angka baru yang dikirim (misalnya dari langkah 10), fungsi listen akan dipanggil.
+5. setState(() { lastNumber = event; });
+Angka yang diterima (event) disimpan ke variabel lastNumber, lalu UI diperbarui.
 
+Langkah 10:
+Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut kemudian dikirim ke stream melalui addNumberToSink(). Artinya, setiap kali fungsi ini dipanggil (misalnya saat menekan tombol), akan ada angka baru yang masuk ke stream.
+**Hasil**
+![](./assets/soal5.gif)
 
 ## Soal 7
 
