@@ -88,7 +88,7 @@ Angka yang diterima (event) disimpan ke variabel lastNumber, lalu UI diperbarui.
 Langkah 10:
 Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut kemudian dikirim ke stream melalui addNumberToSink(). Artinya, setiap kali fungsi ini dipanggil (misalnya saat menekan tombol), akan ada angka baru yang masuk ke stream.
 **Hasil**
-![](./assets/soal5.gif)
+![](./assets/soal6.gif)
 
 ## Soal 7
 **Jelaskan maksud kode langkah 13 sampai 15 tersebut!**
@@ -104,7 +104,7 @@ Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat se
 
 **Jawaban:** StreamTransformer diimplementasikan untuk memanipulasi aliran data sebelum dieksekusi oleh metode listen(). Dalam kasus ini, fungsi handleData mengintervensi setiap angka yang masuk, mengalikan value tersebut dengan 10, lalu meneruskannya ke sink. Mekanisme ini memastikan listener menerima data yang telah terkalibrasi. Apabila terjadi gangguan pada stream, handleError akan menyubstitusi error tersebut menjadi nilai -1 guna menjaga kontinuitas proses dan mencegah kegagalan sistem (crash). Setelah siklus stream berakhir, handleDone bertugas menutup sink. Pada tahap akhir, stream yang telah tertransformasi tersebut dipantau oleh listen, memungkinkan widget memperbarui variabel lastNumber berdasarkan hasil kalkulasi atau nilai fallback -1.
 **Hasil**
-![](./assets/soal6.gif)
+![](./assets/soal8.gif)
 
 ## Soal 9
 
