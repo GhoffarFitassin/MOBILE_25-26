@@ -64,7 +64,8 @@
 ![](./assets/soal2.png)
 
 ## Soal 3
-
+**Hasil**
+![](./assets/soal3.png)
 
 ## Soal 4
 
