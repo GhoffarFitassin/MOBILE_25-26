@@ -68,6 +68,8 @@
 ![](./assets/soal3.png)
 
 ## Soal 4
+**Hasil**
+![](./assets/soal4.png)
 
 ## Soal 5
 
