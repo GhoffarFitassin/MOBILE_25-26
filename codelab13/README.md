@@ -72,6 +72,12 @@
 ![](./assets/soal4.png)
 
 ## Soal 5
+**Jelaskan maksud kode lebih safe dan maintainable!**
+
+**Jawaban:** Penerapan konstanta, OOP, dan parsing terpusat dengan tryParse menjamin kode rapi, reusable, mudah dipelihara, serta mencegah aplikasi mengalami crash.
+
+**Hasil**
+![](./assets/soal5.png)
 
 ## Soal 6
 
