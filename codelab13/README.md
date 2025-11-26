@@ -1,0 +1,179 @@
+<p align="center"><strong>LAPORAN PRAKTIKUM MOBILE WEEK 13</strong></p>
+
+<br><br>
+
+<p align="center">
+    <img src="./assets/POLINEMA-LOGO.png" alt="POLINEMA Logo" width="200">
+</p>
+
+<div align="center">
+  <table>
+      <tr>
+          <td><strong>Nama</strong></td>
+          <td>: Ghoffar Abdul Ja'far</td>
+      </tr>
+      <tr>
+          <td><strong>No Absen</strong></td>
+          <td>: 16</td>
+      </tr>
+      <tr>
+          <td><strong>NIM</strong></td>
+          <td>: 2341720035</td>
+      </tr>
+      <tr>
+          <td><strong>Prodi</strong></td>
+          <td>: TEKNIK INFORMATIKA</td>
+      </tr>
+      <tr>
+          <td><strong>Kelas</strong></td>
+          <td>: 3H</td>
+      </tr>
+  </table>
+</div>
+
+# Tugas
+## Soal 1
+**Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.**
+```
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter JSON Demo - Ghoffar',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(),
+    );
+  }
+```
+**Gantilah warna tema aplikasi sesuai kesukaan Anda.**
+```
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter JSON Demo - Ghoffar',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+```
+## Soal 2
+**Tambahkan 5 warna lainnya sesuai keinginan Anda pada variabel colors tersebut.**
+```
+  Colors.indigo,
+  Colors.pink,
+  Colors.orange,
+  Colors.green,
+  Colors.red
+```
+
+## Soal 3
+**Jelaskan fungsi keyword yield* pada kode tersebut! Apa maksud isi perintah kode tersebut?**
+
+**Jawaban:** yield* digunakan untuk meneruskan semua data yang dihasilkan oleh Stream.periodic ke dalam stream getColors(). Fungsi ini mengirim satu warna setiap 1 detik. yield* hanya meneruskan warna-warna yang dibuat oleh Stream.periodic. Index warna dibuat berulang (loop) dengan memakai operasi modulo.
+## Soal 4
+**Hasil**
+![](./assets/soal4.gif)
+
+## Soal 5
+**Jelaskan perbedaan menggunakan listen dan await for (langkah 9) !**
+
+**Jawaban:** Metode listen diimplementasikan untuk memantau Stream secara kontinu tanpa menginterupsi eksekusi program utama (non-blocking). Mekanisme ini memicu callback seketika saat data tersedia, sehingga ideal untuk proses di background guna menjaga responsivitas UI. Sebaliknya, sintaks await for digunakan untuk mengiterasi data Stream secara sekuensial di dalam fungsi async. Eksekusi kode selanjutnya akan tertunda hingga seluruh siklus Stream rampung. Secara fundamental, await for bersifat memblokir alur fungsi hingga penyelesaian Stream, sedangkan listen memungkinkan program tetap beroperasi secara paralel sembari menerima event.
+
+## Soal 6
+**Jelaskan maksud kode langkah 8 dan 10 tersebut!**
+
+**Jawaban:** 
+Langkah 8:
+Pada langkah ini, widget sedang menyiapkan stream yang akan didengarkan.
+1. numberStream = NumberStream();
+Membuat objek stream khusus yang kamu rancang untuk mengirim angka.
+2. numberStreamController = numberStream.controller;
+Mengambil controller, yaitu alat untuk mengatur kapan data baru dikirim ke stream.
+3. Stream stream = numberStreamController.stream;
+Mengambil aliran datanya (stream-nya).
+4. stream.listen((event) { ... })
+Mulai mendengarkan stream.
+Setiap ada angka baru yang dikirim (misalnya dari langkah 10), fungsi listen akan dipanggil.
+5. setState(() { lastNumber = event; });
+Angka yang diterima (event) disimpan ke variabel lastNumber, lalu UI diperbarui.
+
+Langkah 10:
+Pada langkah ini, fungsi membuat angka random dari 0 sampai 9. Angka tersebut kemudian dikirim ke stream melalui addNumberToSink(). Artinya, setiap kali fungsi ini dipanggil (misalnya saat menekan tombol), akan ada angka baru yang masuk ke stream.
+
+**Hasil**
+![](./assets/soal6.gif)
+
+## Soal 7
+**Jelaskan maksud kode langkah 13 sampai 15 tersebut!**
+
+**Jawaban:** Pemanggilan addError() mengirimkan sebuah error event ke dalam stream menggunakan controller.sink.addError("error"). Artinya, aliran data tidak mengirim angka seperti biasa, tetapi mengirim sinyal bahwa terjadi kesalahan.
+
+Bagian .onError((error) { ... }) adalah error handler pada sisi penerima stream. Ketika stream menerima error tadi, blok ini langsung dijalankan sebagai respon terhadap event error tersebut.
+
+Dalam contoh ini, saat error muncul, nilai lastNumber diubah menjadi -1 lewat setState(), sehingga UI bisa menampilkan keadaan bahwa terjadi kesalahan.
+
+## Soal 8
+**Jelaskan maksud kode langkah 8 dan 10 tersebut!**
+
+**Jawaban:** StreamTransformer diimplementasikan untuk memanipulasi aliran data sebelum dieksekusi oleh metode listen(). Dalam kasus ini, fungsi handleData mengintervensi setiap angka yang masuk, mengalikan value tersebut dengan 10, lalu meneruskannya ke sink. Mekanisme ini memastikan listener menerima data yang telah terkalibrasi. Apabila terjadi gangguan pada stream, handleError akan menyubstitusi error tersebut menjadi nilai -1 guna menjaga kontinuitas proses dan mencegah kegagalan sistem (crash). Setelah siklus stream berakhir, handleDone bertugas menutup sink. Pada tahap akhir, stream yang telah tertransformasi tersebut dipantau oleh listen, memungkinkan widget memperbarui variabel lastNumber berdasarkan hasil kalkulasi atau nilai fallback -1.
+
+**Hasil**
+![](./assets/soal8.gif)
+
+## Soal 9
+**Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!**
+
+**Jawaban:** Dalam implementasi ini, inisialisasi listener dilakukan pada metode initState() untuk mengobservasi data yang masuk ke stream. Pembaruan variabel lastNumber dieksekusi melalui setState() setiap kali terjadi event, dengan mekanisme penanganan error yang menetapkan nilai menjadi -1, serta penanganan terminasi via onDone. Sementara itu, fungsi addRandomNumber() menghasilkan integer acak (0–9) yang hanya didistribusikan jika controller masih aktif. Apabila stream telah ditutup, lastNumber secara eksplisit diubah menjadi -1 sebagai indikator inaktivitas. Pendekatan ini menjamin pembaruan widget yang reaktif sekaligus memitigasi potensi eksepsi (crash) akibat interaksi pada stream yang sudah tidak aktif.
+
+**Hasil**
+![](./assets/soal9.gif)
+
+## Soal 10
+**Jelaskan mengapa error itu bisa terjadi ?**
+
+**Jawaban:** Error “Bad state: Stream has already been listened to.” muncul karena Stream yang bersifat single-subscription hanya boleh di-listen sekali. Jika mencoba memanggil .listen() lagi pada stream yang sama, Flutter langsung melempar error tersebut.
+
+## Soal 11
+**Jelaskan mengapa hal itu bisa terjadi ?**
+
+**Jawaban:** Itu terjadi karena stream-nya diubah menjadi broadcast stream, lalu dipasang dua listener (subscription dan subscription2) yang keduanya menerima data yang sama. Pada single-subscription stream, hanya satu listener yang boleh mendengarkan, tetapi ketika di-broadcast, setiap listener baru akan menerima semua event yang masuk. Jadi, setiap kali addRandomNumber() mengirim satu angka, stream broadcast akan menyalurkannya ke dua listener, sehingga callback dijalankan dua kali, dan nilai values bertambah dua kali untuk setiap event yang sama.
+
+**Hasil**
+![](./assets/soal11.gif)
+
+## Soal 12
+**Jelaskan maksud kode pada langkah 3 dan 7 !**
+
+**Jawaban:**
+Langkah 3: Kode tersebut membuat sebuah stream yang memancarkan (meng-emit ) angka acak setiap 1 detik. Fungsi getNumbers() adalah async generator yang mengembalikan Stream. Di dalamnya, digunakan yield* untuk “meneruskan” aliran data dari Stream.periodic(), yaitu stream yang secara otomatis berjalan setiap durasi tertentu. Pada setiap detik (Duration(seconds: 1)), callback Stream.periodic dijalankan, membuat angka acak baru dengan Random().nextInt(10) lalu mengembalikannya. Hasilnya, siapa pun yang melakukan listen pada stream ini akan menerima angka acak baru setiap 1 detik secara terus-menerus.
+
+Langkah 7: Kode StreamBuilder tersebut berfungsi untuk membangun tampilan UI berdasarkan data terbaru yang dikirim oleh sebuah Stream. StreamBuilder akan memantau numberStream, dan setiap kali stream mengirim nilai baru, builder akan dipanggil ulang untuk memperbarui tampilan. initialData: 0 berarti sebelum stream mengirim data pertama, nilai awal yang ditampilkan adalah 0. Di dalam builder, snapshot berisi data terbaru dari stream: jika terjadi error, bagian snapshot.hasError dijalankan; jika ada data (snapshot.hasData), widget menampilkan angka tersebut dalam teks besar; dan jika belum ada data sama sekali, akan mengembalikan widget kecil SizedBox.shrink() sebagai placeholder. Dengan kata lain, StreamBuilder membuat UI selalu sinkron dengan data stream secara otomatis dan real-time.
+
+**Hasil**
+![](./assets/soal12.gif)
+
+## Soal 13
+**Jelaskan maksud praktikum ini ! Dimanakah letak konsep pola BLoC-nya**
+
+**Jawaban:**
+Tujuan dari praktikum ini adalah membuat aplikasi Flutter sederhana yang menghasilkan angka acak dan menampilkannya di UI.
+
+Letak pola BLoC-nya:
+1. File BLoC: random_bloc.dart
+    - Inti BLoC: kelas RandomNumberBloc.
+    - Input (Event/Sink): _generateRandomController — expose sebagai Sink<void> get generateRandom. UI mengirim event (di sini null) ke sink ini untuk meminta angka baru.
+    - Output (State/Stream): _randomNumberController — expose sebagai Stream<int> get randomNumber. Bloc menambahkan nilai random ke sini sehingga UI dapat berlangganan.
+    - Logika bisnis: di konstruktor RandomNumberBloc() ada listener pada _generateRandomController.stream yang ketika menerima event membuat angka acak Random().nextInt(100) dan add ke _randomNumberController.
+    - Lifecycle: method dispose() menutup controller untuk mencegah memory leak.
+
+2. File UI: random_screen.dart
+    - final _bloc = RandomNumberBloc(); — state membuat instance bloc.
+    - StreamBuilder<int>( stream: _bloc.randomNumber, ...) — UI mendengarkan randomNumber stream dan rebuild saat ada nilai baru.
+    - FloatingActionButton memanggil _bloc.generateRandom.add(null); untuk memicu pembuatan angka baru.
+    - dispose() pada State memanggil _bloc.dispose() untuk menutup resources.
+
+**Hasil**
+![](./assets/soal13.gif)
