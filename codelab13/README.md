@@ -89,6 +89,9 @@
 ![](./assets/soal6.gif)
 
 ## Soal 7
+**Hasil**
+
+![](./assets/soal7.png)
 
 
 ## Soal 8
