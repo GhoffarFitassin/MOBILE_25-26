@@ -95,6 +95,8 @@
 
 
 ## Soal 8
+**Hasil**
 
+![](./assets/soal8.gif)
 
 ## Soal 9
