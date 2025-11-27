@@ -95,6 +95,9 @@
 
 
 ## Soal 8
+**Jelaskan maksud kode pada langkah 3 dan 7 !**
+**Jawaban:** Fungsi writeFile() adalah fungsi asynchronous yang berusaha menulis teks "Margherita, Capricciosa, Napoli" ke sebuah file menggunakan myFile.writeAsString(). Jika proses penulisan berhasil, fungsi mengembalikan true, dan jika terjadi error, catch akan menangkapnya lalu mengembalikan false. Pada UI-nya, terdapat sebuah ElevatedButton yang ketika ditekan akan memanggil fungsi readFile() untuk membaca isi file tersebut, dan hasil bacaannya akan ditampilkan pada widget Text(fileText) sehingga pengguna dapat melihat teks yang tersimpan di file.
+
 **Hasil**
 
 ![](./assets/soal8.gif)
