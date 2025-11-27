@@ -103,3 +103,6 @@
 ![](./assets/soal8.gif)
 
 ## Soal 9
+**Hasil**
+
+![](./assets/soal9.gif)
